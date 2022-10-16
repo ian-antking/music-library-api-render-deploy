@@ -43,6 +43,4 @@ jobs:
       - name: Create Database
         run: psql $DATABASE_URL -c 'CREATE DATABASE blog_test;'
       - name: Install Dependencies
-        run: npm install
-      - name: Run Integration Tests
-        run: npm test
+        run: npm install && npm test

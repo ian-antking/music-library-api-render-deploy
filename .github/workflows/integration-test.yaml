@@ -45,4 +45,4 @@ jobs:
       - name: Install Dependencies
         run: npm i
       - name: Run Integration Tests
-        run: npm run test:integration
+        run: npm test

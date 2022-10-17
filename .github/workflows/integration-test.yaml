@@ -40,7 +40,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes postgresql-client
       - name: Create Database
-        run: psql $DATABASE_URL -c 'CREATE DATABASE ${DB_NAME};'
+        run: psql $DATABASE_URL -c 'CREATE DATABASE music_library;'
       - name: Install Dependencies
         run: npm ci
       - name: Run Integration Tests

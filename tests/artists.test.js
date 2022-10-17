@@ -13,7 +13,7 @@ describe('/artists', () => {
   });
 
   beforeEach((done) => {
-    Artist.destroy({ where: {} })
+    Artist.truncate()
       .then(() => done())
       .catch((error) => done(error));
   });

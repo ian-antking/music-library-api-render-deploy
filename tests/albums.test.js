@@ -21,8 +21,8 @@ describe('/albums', () => {
 
   beforeEach((done) => {
     Promise.all([
-      Artist.destroy({ where: {} }),
-      Album.destroy({ where: {} })
+      Artist.truncate(),
+      Album.truncate()
     ])
       .then(() => Artist.create({ name: "Tame Impala", genre: "Rock" }))
       .then((artistDocument) => {

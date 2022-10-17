@@ -19,13 +19,8 @@ const setupDatabase = () => {
 
   
   Album.belongsTo(Artist, { as: 'artist', foreignKey: { allowNull: false }, onDelete: "CASCADE"});
-  Artist.hasMany(Album, { as: 'albums', foreignKey: 'id' });
 
   Song.belongsTo(Album, { as: 'album', foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-  Album.hasMany(Song, { as: 'songs', foreignKey: 'id' });
-
-  Song.belongsTo(Artist, { as: 'artist', foreignKey: { allowNull: false }, onDelete: "CASCADE" });
-  Artist.hasMany(Song, { as: 'songs', foreignKey: 'id' });
 
   connection.sync({ alter: true });
   return {

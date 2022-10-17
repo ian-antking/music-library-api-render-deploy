@@ -29,7 +29,7 @@ describe('/albums', () => {
   //     .catch((error) => done(error));
   // });
 
-  // describe('POST /artists/:artistId/albums', () => {
+  describe('POST /artists/:artistId/albums', () => {
   //   it('creates a new album for a given artist', (done) => {
   //     request(app)
   //       .post(`/artists/${artist.id}/albums`)

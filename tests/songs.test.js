@@ -47,7 +47,6 @@ describe('/songs', () => {
           expect(res.status).to.equal(201);
           expect(res.body.name).to.equal('Solitude Is Bliss');
           expect(res.body.albumId).to.equal(album.id);
-          expect(res.body.artistId).to.equal(artist.id);
           done();
         })
         .catch((error) => done(error));

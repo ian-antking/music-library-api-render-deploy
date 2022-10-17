@@ -7,14 +7,14 @@ const { Artist, Album } = require('../src/models');
 describe('/albums', () => {
   let artist;
 
-  // before((done) => {
-  //   Promise.all([
-  //     Album.sequelize.sync(),
-  //     Artist.sequelize.sync()
-  //   ])
-  //     .then(() => done())
-  //     .catch((error) => done(error));
-  // });
+  before((done) => {
+    Promise.all([
+      Album.sequelize.sync({ force: true }),
+      Artist.sequelize.sync({ force: true })
+    ])
+      .then(() => done())
+      .catch((error) => done(error));
+  });
 
   beforeEach((done) => {
     Promise.all([

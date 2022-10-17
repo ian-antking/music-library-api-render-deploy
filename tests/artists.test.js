@@ -13,7 +13,7 @@ describe('/artists', () => {
   });
 
   beforeEach((done) => {
-    Artist.truncate()
+    Artist.truncate({ cascade: true })
       .then(() => done())
       .catch((error) => done(error));
   });

@@ -13,16 +13,13 @@ describe('/albums', () => {
       Artist.sequelize.sync()
     ])
       .then(() => done())
-      .catch((error) => {
-        console.log(error)
-        done(error)
-      });
+      .catch((error) => done(error));
   });
 
   beforeEach((done) => {
     Promise.all([
-      Artist.truncate(),
-      Album.truncate()
+      Artist.truncate({ cascade: true }),
+      Album.truncate({ cascade: true })
     ])
       .then(() => Artist.create({ name: "Tame Impala", genre: "Rock" }))
       .then((artistDocument) => {

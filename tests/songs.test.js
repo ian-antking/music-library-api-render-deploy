@@ -19,9 +19,9 @@ describe('/songs', () => {
 
   beforeEach((done) => {
     Promise.all([
-      Artist.truncate(),
-      Album.truncate(),
-      Song.truncate()
+      Artist.truncate({ cascade: true }),
+      Album.truncate({ cascade: true }),
+      Song.truncate({ cascade: true })
     ])
       .then(() => Artist.create({ name: "Tame Impala", genre: "Rock" }))
       .then((artistDocument) => {

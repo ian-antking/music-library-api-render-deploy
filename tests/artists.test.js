@@ -5,12 +5,12 @@ const { Artist } = require('../src/models');
 const app = require('../src/app');
 
 describe('/artists', () => {
-  // before((done) => {
-  //   Artist.sequelize
-  //     .sync()
-  //     .then(() => done())
-  //     .catch((error) => done(error));
-  // });
+  before((done) => {
+    Artist.sequelize
+      .sync()
+      .then(() => done())
+      .catch((error) => done(error));
+  });
 
   beforeEach((done) => {
     Artist.truncate({ cascade: true })

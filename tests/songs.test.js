@@ -7,15 +7,15 @@ describe('/songs', () => {
   let artist;
   let album;
 
-  // before((done) => {
-  //   Promise.all([
-  //     Song.sequelize.sync(),
-  //     Album.sequelize.sync(),
-  //     Artist.sequelize.sync()
-  //   ])
-  //     .then(() => done())
-  //     .catch((error) => done(error));
-  // });
+  before((done) => {
+    Promise.all([
+      Song.sequelize.sync(),
+      Album.sequelize.sync(),
+      Artist.sequelize.sync()
+    ])
+      .then(() => done())
+      .catch((error) => done(error));
+  });
 
   beforeEach((done) => {
     Promise.all([

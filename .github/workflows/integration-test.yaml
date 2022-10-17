@@ -12,7 +12,7 @@ jobs:
   integration-test:
     env:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432
-      DB_HOST: postgres
+      DB_HOST: localhost
       DB_USER: postgres
       DB_PASSWORD: postgres
       DB_PORT: 5432

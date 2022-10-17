@@ -12,7 +12,7 @@ jobs:
   integration-test:
     env:
       DATABASE_URL: postgresql://postgres:postgres@localhost:5432
-      NODE_ENV: production
+      NODE_ENV: test
       DB_HOST: localhost
       DB_USER: postgres
       DB_PASSWORD: password
@@ -43,6 +43,6 @@ jobs:
       - name: Create Database
         run: psql $DATABASE_URL -c 'CREATE DATABASE blog_test;'
       - name: Install Dependencies
-        run: npm i
+        run: npm ci
       - name: Run Integration Tests
         run: npm test

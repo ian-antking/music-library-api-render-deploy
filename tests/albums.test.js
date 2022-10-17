@@ -9,8 +9,8 @@ describe('/albums', () => {
 
   before((done) => {
     Promise.all([
-      Artist.sequelize.sync(),
-      Album.sequelize.sync()
+      Album.sequelize.sync(),
+      Artist.sequelize.sync()
     ])
       .then(() => done())
       .catch((error) => done(error));

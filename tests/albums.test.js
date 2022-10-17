@@ -16,39 +16,39 @@ describe('/albums', () => {
       .catch((error) => done(error));
   });
 
-  beforeEach((done) => {
-    Promise.all([
-      Album.destroy({ where: {} }),
-      Artist.destroy({ where: {} })
-    ])
-      .then(() => Artist.create({ name: "Tame Impala", genre: "Rock" }))
-      .then((artistDocument) => {
-        artist = artistDocument;
-        done();
-      })
-      .catch((error) => done(error));
-  });
+  // beforeEach((done) => {
+  //   Promise.all([
+  //     Album.destroy({ where: {} }),
+  //     Artist.destroy({ where: {} })
+  //   ])
+  //     .then(() => Artist.create({ name: "Tame Impala", genre: "Rock" }))
+  //     .then((artistDocument) => {
+  //       artist = artistDocument;
+  //       done();
+  //     })
+  //     .catch((error) => done(error));
+  // });
 
-  describe('POST /artists/:artistId/albums', () => {
-    it('creates a new album for a given artist', (done) => {
-      request(app)
-        .post(`/artists/${artist.id}/albums`)
-        .send({
-          name: 'InnerSpeaker',
-          year: 2010,
-        })
-        .then((res) => {
-          expect(res.status).to.equal(201);
-          return Album.findByPk(res.body.id, { raw: true });
-        })
-        .then((album) => {
-          expect(album.name).to.equal('InnerSpeaker');
-          expect(album.year).to.equal(2010);
-          expect(album.artistId).to.equal(artist.id);
-          done();
-        })
-        .catch((error) => done(error));
-    });
+  // describe('POST /artists/:artistId/albums', () => {
+  //   it('creates a new album for a given artist', (done) => {
+  //     request(app)
+  //       .post(`/artists/${artist.id}/albums`)
+  //       .send({
+  //         name: 'InnerSpeaker',
+  //         year: 2010,
+  //       })
+  //       .then((res) => {
+  //         expect(res.status).to.equal(201);
+  //         return Album.findByPk(res.body.id, { raw: true });
+  //       })
+  //       .then((album) => {
+  //         expect(album.name).to.equal('InnerSpeaker');
+  //         expect(album.year).to.equal(2010);
+  //         expect(album.artistId).to.equal(artist.id);
+  //         done();
+  //       })
+  //       .catch((error) => done(error));
+  //   });
 
     it('returns a 404 and does not create an album if the artist does not exist', (done) => {
       request(app)
